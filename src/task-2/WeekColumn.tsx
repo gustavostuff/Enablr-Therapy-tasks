@@ -11,8 +11,9 @@ function WeekColumn({ unavailable, date, day }: any) {
       {
         <div className="times">
           {Array.from(Array(6)).map(() => {
-            const time = firstHour.format("HH:mm");
+            const time = firstHour.format("h:mm A");
             firstHour.add(30, "minute");
+            console.log('unavailable[time]', unavailable[time])
             return (
               <TimeSlot
                 status={unavailable[time]?.status}

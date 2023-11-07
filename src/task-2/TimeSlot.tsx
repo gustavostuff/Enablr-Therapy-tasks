@@ -1,6 +1,7 @@
-function TimeSlot({ time }: any) {
+function TimeSlot({ status, time }: any) {
+  const classes = `time-slot ${status || "available"}`;
   return (
-    <div className="time-slot available">
+    <div className={classes}>
       {time}
     </div>
   );

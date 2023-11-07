@@ -25,10 +25,18 @@ hml, body {
   align-items: center;
   justify-content: center;
   margin: 2px;
+  box-sizing: border-box;
+  margin-block: 4px;
 }
 
 .time-slot.available {
   color: #ccc;
+  border: 2px solid #edf8f1;
+}
+
+.time-slot.unavailable {
+  background-color: #48bb78;
+  color: #fff;
 }
 
 

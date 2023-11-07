@@ -46,6 +46,7 @@ function Calendar() {
         <button onClick={() => changeWeek("prev")}>prev</button>
         {datesInCurrentWeek.map((date: string) => {
           const currentDay = moment(date).format("ddd");
+          console.log("unavailableTimes[currentDay]", unavailableTimes[currentDay]);
           return (
             <WeekColumn
               unavailable={unavailableTimes[currentDay] || {}}
