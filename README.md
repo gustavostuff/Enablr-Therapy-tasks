@@ -1,8 +1,8 @@
 ## Enablr Therapy Coding Challenge
 
-## Setup
+### Setup
 
 * `npm i`
 * `npm run dev`
 
-Once the app starts, open http://localhost:5173/ and you'll see the 3 tasks in the UIm with notes for context.
+Once the app starts, open http://localhost:5173/ and you'll see the 3 tasks in the UI along with notes for context.
