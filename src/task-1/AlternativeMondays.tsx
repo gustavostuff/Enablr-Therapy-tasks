@@ -59,6 +59,7 @@ function AlternativeMondays() {
           {JSON.stringify(alternativeMondays, null, 2)}
         </pre>
       </div>
+      <p>See <b>getAlternativeMondays</b> function in shared/utils.ts</p>
     </div>
   )
 }

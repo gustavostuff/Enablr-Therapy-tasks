@@ -9,6 +9,7 @@ function App() {
       <p>Things I was planning on adding but unfortunately didn't have the time:</p>
       <ul>
         <li>Unit tests</li>
+        <li>Responsive design</li>
         <li>CSS modules for maintainable styles</li>
         <li>Adding animations and transitions</li>
         <li>TypeScript in all elements (I'm not setting types for components props, for instance)</li>
