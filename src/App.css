@@ -11,34 +11,77 @@ hml, body {
 
 .calendar .week-grid {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar .calendar-arrow {
+  background-color: transparent;
+  color: #aaa;
+  border: none;
+  cursor: pointer;
+  margin-inline: 2px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: large;
+}
+
+.calendar .calendar-arrow:hover {
+  background-color: #edf8f1;
 }
 
 .week-grid .week-column {
-  flex: 1;
+  display: flex;
   flex-direction: column;
   text-align: center;
+  margin-inline: 3px;
+  justify-content: center;
+  align-items: center;
+}
+
+.week-grid .week-column .number {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.week-grid .week-column .day-of-week {
+  color: #999;
 }
 
 .time-slot {
+  user-select: none;
+  min-width: 5rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2px;
+  margin-block: 6px;
   box-sizing: border-box;
-  margin-block: 4px;
 }
 
 .time-slot.available {
-  color: #ccc;
+  color: #ddd;
   border: 2px solid #edf8f1;
+  cursor: pointer;
+}
+
+.time-slot.available:hover {
+  border-color: #48bb78;
+  color: #222;
 }
 
 .time-slot.unavailable {
-  background-color: #48bb78;
-  color: #fff;
+  background-color: #edf8f1;
+  color: #222;
 }
-
 
 .simple-table {
   margin-top: 1rem;
@@ -62,10 +105,10 @@ h1 {
   margin-top: 1rem;
 }
 
-@media (min-width: 900px) {
+/* @media (min-width: 900px) {
   .container {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 1rem;
   }
-}
+} */
