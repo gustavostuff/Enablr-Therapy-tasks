@@ -1,0 +1,63 @@
+hml, body {
+  font-family: sans-serif;
+}
+
+.container {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.calendar .week-grid {
+  display: flex;
+}
+
+.week-grid .week-column {
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+}
+
+.time-slot {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+}
+
+.time-slot.available {
+  color: #ccc;
+}
+
+
+.simple-table {
+  margin-top: 1rem;
+}
+
+.simple-table tr:nth-child(even){
+  background-color: #cceeee;
+  border-collapse: collapse;
+}
+
+.simple-table td,
+.simple-table th {
+  padding: 0.5rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+@media (min-width: 900px) {
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+}
