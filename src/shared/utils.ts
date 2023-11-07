@@ -10,7 +10,7 @@ export function getAlternativeMondays(
   const finalDate = moment(endDate);
 
   // Get the day of the week for the current date
-  const currentDay = currentDate.day() || 7;
+  const currentDay = currentDate.day();
   // Calculate the difference in days to the next Monday
   const differenceToNextMonday = (8 - currentDay) % 7;
 

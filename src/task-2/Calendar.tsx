@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getWeekSunToSat, getStartOfWeek } from "../utils";
+import { getWeekSunToSat, getStartOfWeek } from "../shared/utils";
 import moment from "moment";
 import WeekColumn from "./WeekColumn";
 
@@ -8,17 +8,20 @@ function Calendar() {
     ['2023-11-05']: { // Sunday
       Mon: {
         ['6:30 AM']: {
-          status: 'unavailable'
+          status: 'unavailable',
+          owned: false // This means it's somebody else's slot
         }
       },
     },
     ['2023-11-12']: {// Sunday
       Mon: {
         ['6:30 AM']: {
-          status: 'unavailable'
+          status: 'unavailable',
+          owned: false
         },
         ['7:30 AM']: {
-          status: 'unavailable'
+          status: 'unavailable',
+          owned: false
         }
       },
     },
@@ -68,10 +71,19 @@ function Calendar() {
     if (!newState[firstDayOfWeek][day]) {
       newState[firstDayOfWeek][day] = {};
     }
-    if (!newState[firstDayOfWeek][day][time]) {
-      newState[firstDayOfWeek][day][time] = {
-        status: 'unavailable'
-      };
+    let targetSlot = newState[firstDayOfWeek][day][time]
+    if (!targetSlot) {
+      if (confirm('Do you want to add this slot?')) {
+        targetSlot = {
+          status: 'unavailable',
+          owned: true
+        };
+        newState[firstDayOfWeek][day][time] = targetSlot
+      }
+    } else {
+      if (targetSlot.owned) {
+        delete newState[firstDayOfWeek][day][time];
+      }
     }
 
     setCalendarData(newState);
@@ -106,9 +118,37 @@ function Calendar() {
       <ul>
         <li>Added the hour time stamp to available slots</li>
         <li>Moved week arrows to a different position (just personal taste)</li>
-        <li>Unlike in figma, all hours are at the same height thru the days</li>
+        <li>Unlike in figma, all hours are at the same height thru the days, for consistency</li>
+        <li>Strong green = slots the "current user" owns, light green = other user's slots</li>
       </ul>
-      <p>I did some changes just to have a look and feel more similar to an actual calendar</p>
+      <p>I did some changes just to have a look and feel more similar to an actual calendar. The initial model (state) for the calendar is below:</p>
+      <pre>
+        {`
+{
+  ['2023-11-05']: {
+    Mon: {
+      ['6:30 AM']: {
+        status: 'unavailable',
+        owned: false
+      }
+    },
+  },
+  ['2023-11-12']: {
+    Mon: {
+      ['6:30 AM']: {
+        status: 'unavailable',
+        owned: false
+      },
+      ['7:30 AM']: {
+        status: 'unavailable',
+        owned: false
+      }
+    },
+  },
+}
+        `}
+      </pre>
+      <p>(Look at <b>Calendar.tsx</b> for more details on it)</p>
     </div>
   );
 }

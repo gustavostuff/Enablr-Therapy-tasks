@@ -18,6 +18,7 @@ function WeekColumn({ unavailable, date, day, changeSlotState }: any) {
               <TimeSlot
                 changeSlotState={(time: string) => changeSlotState(time, day)}
                 status={unavailable[time]?.status}
+                owned={unavailable[time]?.owned}
                 key={time}
                 time={time}
               />

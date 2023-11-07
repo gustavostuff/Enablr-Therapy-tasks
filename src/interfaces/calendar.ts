@@ -1,5 +1,6 @@
 interface CalendarTimeSlot {
   status: 'available' | 'unavailable';
+  owned: boolean
 }
 
 interface DayOfWeek {

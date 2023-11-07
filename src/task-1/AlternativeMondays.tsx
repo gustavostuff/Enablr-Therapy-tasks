@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { getAlternativeMondays } from '../utils';
+import { getAlternativeMondays } from '../shared/utils';
 
 function AlternativeMondays() {
   const [startDate, setStartDate] = useState<string>(

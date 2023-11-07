@@ -83,6 +83,11 @@ hml, body {
   color: #222;
 }
 
+.time-slot.owned {
+  background-color: #48bb78;
+  color: #fff;
+}
+
 .simple-table {
   margin-top: 1rem;
 }

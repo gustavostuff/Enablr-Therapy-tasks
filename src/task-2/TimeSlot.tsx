@@ -1,5 +1,5 @@
-function TimeSlot({ status, time, changeSlotState }: any) {
-  const classes = `time-slot ${status || "available"}`;
+function TimeSlot({ status, owned, time, changeSlotState }: any) {
+  const classes = `time-slot ${status || "available"} ${owned ? "owned" : ""}`;
 
   const checkAndSaveSlot = (time: string) => {
     changeSlotState(time);
