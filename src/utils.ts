@@ -47,7 +47,7 @@ export function getWeekSunToSat(dateString: string): string[] {
   for (let i = 0; i < 7; i++) {
     const formattedDate = inputDate.format('YYYY-MM-DD');
     weekDates.push(formattedDate);
-    inputDate.add(1, 'day'); // Move to the next day
+    inputDate.add(1, 'day');// Move to the next day
   }
 
   return weekDates;

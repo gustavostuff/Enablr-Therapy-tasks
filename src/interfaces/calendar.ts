@@ -1,18 +1,15 @@
-export interface CalendarTimeSlot {
-  time: string;
-  status: 'available' | 'unavailable' | 'to-be-confirmed';
+interface CalendarTimeSlot {
+  status: 'available' | 'unavailable';
 }
 
-export interface WeekOfWork {
-  Sun?: CalendarTimeSlot[];
-  Mon?: CalendarTimeSlot[];
-  Tue?: CalendarTimeSlot[];
-  Wed?: CalendarTimeSlot[];
-  Thu?: CalendarTimeSlot[];
-  Fri?: CalendarTimeSlot[];
-  Sat?: CalendarTimeSlot[];
+interface DayOfWeek {
+  [time: string]: CalendarTimeSlot;
 }
 
-export type Weeks = {
+interface WeekOfWork {
+  [day: string]: DayOfWeek;
+}
+
+interface Weeks {
   [date: string]: WeekOfWork;
-};
+}
